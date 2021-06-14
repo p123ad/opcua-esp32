@@ -1,3 +1,7 @@
+
+This branch has not been tested yet.
+
+
 # OPC UA Server on ESP32
 
 It is aimed to run OPC UA server on ESP32 board (xtensa toolchain). The information model is handled under models.c/h file. It contains a temperature sensor(DHT22) read port 4, a callback method to call ESP32-WROOM on board LED and 2 relays, which can be controlled as OPCUA objects.
