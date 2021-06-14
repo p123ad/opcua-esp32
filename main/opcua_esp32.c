@@ -19,7 +19,6 @@
 
 #include "ethernet_connect.h"
 #include "open62541.h"
-#include "DHT22.h"
 #include "model.h"
 
 #define EXAMPLE_ESP_MAXIMUM_RETRY 10
@@ -114,11 +113,13 @@ static void opcua_task(void *arg)
     UA_ServerConfig_setUriName(config, appUri, "OPC_UA_Server_ESP32");
     UA_ServerConfig_setCustomHostname(config, hostName);
 
+
+
     /* Add Information Model Objects Here */
-    // addLEDMethod(server);
-    addCurrentTemperatureDataSourceVariable(server);
-    addRelay0ControlNode(server);
-    addRelay1ControlNode(server);
+    addLEDMethod(server);
+    addButtonControlNode(server);
+
+
 
     ESP_LOGI(TAG, "Heap Left : %d", xPortGetFreeHeapSize());
     UA_StatusCode retval = UA_Server_run_startup(server);
